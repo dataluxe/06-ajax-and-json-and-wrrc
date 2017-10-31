@@ -50,7 +50,7 @@ Article.fetchAll = () => {
     // REVIEWED: When rawData is already in localStorage we can load it with the .loadAll function above and then render the index page (using the proper method on the articleView object).
 
     //DONE: This function takes in an argument. What do we pass in to loadAll()?
-    Article.loadAll(rawData);
+    Article.loadAll(JSON.parse(localStorage.getItem('rawData')));
 
     //DONE: What method do we call to render the index page?
 
@@ -68,9 +68,9 @@ Article.fetchAll = () => {
     })
     // - we need to cache it in localStorage so we can skip the server call next time
       .done(function(data){
-        localStorage.setItem('rawData', data);
+        localStorage.setItem('rawData', JSON.stringify(data));
         // - we then need to load all the data into Article.all with the .loadAll function above
-        articleView.loadAll(data);
+        Article.loadAll(data);
         // - then we can render the index page
         articleView.initIndexPage();
       })
