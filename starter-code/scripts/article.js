@@ -60,7 +60,7 @@ Article.fetchAll = () => {
     // Though I don't feel this is a good way to do things, we have added the initIndexPage() to a parent function, which handles the logic for gathering rawData from its proepr source, which is the prerequiste for loadAll, and initIndexPage (and initArticlePage, later).
 
   } else {
-    // TODO: When we don't already have the rawData:
+    // DONE: When we don't already have the rawData:
     // - we need to retrieve the JSON file from the server with AJAX (which jQuery method is best for this?)
     $.ajax({
       url: 'data/hackerIpsum.json',
